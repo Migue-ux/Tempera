@@ -1,0 +1,826 @@
+/* ---------------------- */
+/*        RESET           */
+/* ---------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------------------- */
+/*       PALETA           */
+/* ---------------------- */
+:root {
+  --verde-escuro: #072615;
+  --verde-padrao-1: #15482d;
+  --verde-padrao-2: #256d46;
+  --verde-claro-1: #46bf7e;
+  --verde-claro-2: #58eb9c;
+  --verde-ultra: #c9fddb;
+  --preto: #222;
+  --branco: #fff;
+  --radius: 16px;
+  --shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+   --text: font-family: "Calistoga", serif;
+
+   --brand: var(--verde-escuro );
+  --card-text: var(--branco, #ffffff);
+  --card-bg-dim: rgba(255,255,255,0.06);
+}
+
+/* ---------------------------------- */
+/*        Fontes GERAIS            */
+/* ---------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+ /* font-family: "Calistoga", serif; */
+
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&display=swap');
+ /* font-family: "Agbalumo", system-ui; */
+
+@import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
+  /* font-family: "Yusei Magic", sans-serif; */
+
+@import url('https://fonts.googleapis.com/css2?family=Mozilla+Headline:wght@200..700&display=swap');
+  /* font-family: "Mozilla Headline", sans-serif; */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: #222;
+  overflow-x: hidden;
+  font-family: "Calistoga", serif;
+}
+/* FIXA NO TOPO */
+.navbar {
+ 
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--verde-escuro);
+
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.35);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px);
+}
+
+/* CENTRALIZA TUDO */
+.nav-container {
+  width: 90%;
+  max-width: 1300px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LOGO */
+.logo {
+  color: var(--verde-ultra);
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* LINKS */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-links a
+ {
+text-decoration: none;
+  color: var(--branco);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 8px 6px;
+  cursor: pointer;
+  transition: 0.2s;
+  border: none;
+  border-radius: var(--radius);
+}
+.drop-btn {
+  font-family: "Calistoga", serif;
+  border: none;
+  color: var(--branco);
+  font-size: 1rem;
+  padding: 8px 6px;
+  cursor: pointer;
+  transition: 0.2s;
+  border-radius: var(--radius);
+  background-color: #15482d;
+  width: 100px;
+}
+
+/* HOVER GLOW */
+.nav-links a:hover,
+.drop-btn:hover {
+  color: var(--verde-claro2);
+  text-shadow: 0 0 6px var(--verde-claro2);
+}
+
+/* DROPDOWN */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background: var(--verde-padrao-1);
+  padding: 10px;
+  border-radius: 10px;
+  top: 32px;
+  min-width: 150px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.dropdown-menu a:hover {
+  background: var(--verde-claro1);
+  color: var(--preto);
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* BOTÃO MOBILE */
+.mobile-btn {
+  display: none;
+  font-size: 2rem;
+  color: var(--branco);
+  cursor: pointer;
+}
+
+/* ============================= */
+/*          MOBILE MODE          */
+/* ============================= */
+
+@media (max-width: 850px) {
+  .mobile-btn {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: -100%;
+    background: var(--verde-escuro);
+    width: 60%;
+    height: 100vh;
+    flex-direction: column;
+    gap: 18px;
+    padding-top: 30px;
+    transition: 0.3s ease;
+  }
+
+  .nav-links.open {
+    right: 0;
+  }
+
+  .dropdown-menu {
+    position: static;
+    background: var(--verde-padrao1);
+    width: 80%;
+    margin: auto;
+  }
+}
+/* ---------------------- */
+/*         HERO           */
+/* ---------------------- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 120px 7% 80px;
+  gap: 40px;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  color: var(--verde-escuro);
+  font-weight: 800;
+}
+
+.hero-text span {
+  color: var(--verde-padrao-2);
+}
+
+.hero-text p {
+  margin: 12px 0 22px;
+  font-size: 18px;
+}
+
+.cta-big {
+  padding: 14px 26px;
+  background: linear-gradient(45deg, var(--verde-padrao-1), var(--verde-padrao-2));
+  color: var(--branco);
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 18px;
+  transition: .3s;
+}
+
+.cta-big:hover {
+  opacity: .85;
+}
+
+.hero-img {
+  width: 50%;
+  border-radius: var(--radius);
+  position: relative;
+  overflow: hidden;
+
+  /* Profundidade real */
+  transform-style: preserve-3d;
+  perspective: 900px;
+
+  /* BOX SHADOW COM A TUA PALETA */
+  box-shadow: 0 50px 90px rgba(46, 255, 146, 0.25),
+              0 0 50px rgba(18, 140, 80, 0.5);
+
+  transition: transform .45s ease, box-shadow .45s ease, filter .4s ease;
+}
+
+/* Glow bioluminescente pulsando */
+.hero-img::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  border-radius: inherit;
+
+  background: radial-gradient(
+    circle at 50% 20%,
+    rgba(46, 255, 146, 0.20),
+    transparent 65%
+  );
+
+  filter: blur(35px);
+  opacity: 0.7;
+  animation: pulseGlow 4s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Reflexo líquido */
+.hero-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.18) 45%,
+    transparent 90%
+  );
+
+  opacity: 0;
+  transform: translateX(-120%) skewX(-20deg);
+  transition: opacity .5s ease, transform 0.9s cubic-bezier(.17,.67,.53,1);
+  pointer-events: none;
+}
+
+/* Hover: tilt + liquify + shine */
+.hero-img:hover {
+  transform: rotateX(6deg) rotateY(-6deg) scale(1.02);
+  box-shadow: 0 20px 55px rgba(46,255,146,0.28),
+              0 0 18px rgba(18,140,80,0.6);
+  filter: saturate(1.25) brightness(1.05);
+}
+
+.hero-img:hover::after {
+  opacity: 1;
+  transform: translateX(140%) skewX(-20deg);
+}
+
+/* Micro-parallax líquido interno */
+.hero-img:hover img {
+  transform: translateZ(40px) scale(1.03);
+  transition: transform .4s ease;
+}
+
+/* --- ANIMAÇÕES --- */
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(0.95); }
+  50% { opacity: 0.8; transform: scale(1.06); }
+}
+
+/* Responsivo */
+@media (max-width: 800px) {
+  .hero-img {
+    width: 90%;
+  }
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 850px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-img {
+    width: 100%;
+  }
+}
+
+
+/* ---------------------- */
+/*      CATEGORIAS        */
+/* ---------------------- */
+.categories {
+  padding: 60px 7%;
+}
+
+.categories h2 {
+  font-size: 2rem;
+  margin-bottom: 22px;
+  color: var(--verde-escuro);
+}
+
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+.cat-card {
+  background: var(--verde-ultra);
+  border-radius: var(--radius);
+  padding: 12px;
+  text-align: center;
+  transition: .3s;
+  cursor: pointer;
+}
+
+.cat-card:hover {
+  transform: translateY(-4px);
+}
+
+.cat-card img {
+  width: 100%;
+  border-radius: var(--radius);
+  margin-bottom: 8px;
+}
+
+
+/* ---------------------- */
+/*   MONTE SUA MARMITA    */
+/* ---------------------- */
+.marmita-builder {
+  background: var(--verde-claro-1);
+  padding: 70px 7%;
+  text-align: center;
+  color: var(--branco);
+}
+
+.marmita-builder h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.builder-btn {
+  margin-top: 22px;
+  padding: 14px 30px;
+  background: var(--branco);
+  color: var(--verde-escuro);
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+
+
+
+/* ---------------------- */
+/*       COMBOS          */
+/* ---------------------- */
+
+
+
+.combos {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+
+
+.combo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+.cssbuttons-io-button {
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.7em 1.4em 0.7em 1.1em;
+  color: white;
+  background: #ad5389;
+  background: linear-gradient(
+    0deg,
+    rgb(40, 122, 63) 0%,
+    rgb(63, 99, 66) 100%
+  );
+  border: none;
+  box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+  letter-spacing: 0.05em;
+  border-radius: 20em;
+}
+
+.cssbuttons-io-button svg {
+  margin-right: 6px;
+}
+
+.cssbuttons-io-button:hover {
+  box-shadow: 0 0.5em 1.5em -0.5em #14a73e98;
+}
+
+.cssbuttons-io-button:active {
+  box-shadow: 0 0.3em 1em -0.5em #14a73e98;
+}
+
+
+
+.combo-card {
+  background: var(--verde-padrao-1);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow);
+  padding: 25px;
+  border-radius: 18px;
+  color: #fff;
+  transition: 0.45s ease;
+  position: relative;
+  
+  /* Animação de "levitação" */
+  animation: floatCard 4s ease-in-out infinite;
+  
+  /* Mantém o texto centralizado como nos estilos de conteúdo */
+  text-align: center; 
+}
+
+/* Glow Master Classy (Efeito de borda brilhante) */
+.combo-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--brand), #0000);
+  filter: blur(12px);
+  opacity: 0.65;
+  z-index: -1;
+}
+
+/* Hover no Card */
+.combo-card:hover {
+  /* Inclui a rotação X para um efeito 3D sutil */
+  transform: translateY(-8px) scale(1.03) rotateX(4deg);
+  box-shadow: 0 0 25px var(--brand);
+  border-color: var(--brand);
+}
+
+/* Efeito flutuante */
+@keyframes floatCard {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+/* ================================================= */
+/* CONTEÚDO DO CARD                */
+/* ================================================= */
+
+/* IMAGEM */
+.combo-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  margin-bottom: 14px;
+
+  /* Estilos glass + sombra da marca */
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.45),
+    0 0 24px rgba(86, 235, 160, 0.06);
+  
+  transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 0.45s ease, filter 0.45s ease;
+}
+
+/* Hover na Imagem */
+.combo-card:hover img {
+  transform: scale(1.06) translateZ(20px);
+  box-shadow:
+    0 0 36px rgba(86, 235, 160, 0.18);
+  /* A sombra maior já está sendo aplicada ao .combo-card no hover */
+  filter: brightness(1.06) saturate(1.08);
+}
+
+/* TÍTULO (h3) */
+.combo-card h3 {
+  font-size: 1.25rem;
+  margin: 8px 0 6px;
+  color: var(--card-text, #fff); /* Usando fallback para caso a variável não exista */
+  letter-spacing: 0.6px;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* DESCRIÇÃO (p) */
+.combo-card p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.92);
+  opacity: 0.95;
+  line-height: 1.45;
+  margin: 0 0 12px;
+  text-align: center; 
+}
+
+
+.price
+{
+  display: inline-block;
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--brand);
+  /* Efeito de fundo sutil */
+  background: #ad5389;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 -6px 16px rgba(0, 0, 0, 0.12);
+  letter-spacing: 0.6px;
+}
+
+
+.combo-btn {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 0.98rem;
+  /* Cor escura para contraste */
+  color: #072615; 
+  background: linear-gradient(90deg, var(--brand), rgba(37, 109, 70, 0.95));
+  box-shadow:
+    0 8px 20px rgba(6, 40, 24, 0.25),
+    0 0 28px rgba(86, 235, 160, 0.12);
+  transition: transform 0.22s ease, box-shadow 0.28s ease, filter 0.2s ease;
+}
+
+/* Hover/Active/Focus no Botão */
+.combo-btn:hover {
+  transform: translateY(-4px);
+  filter: brightness(1.05);
+  box-shadow:
+    0 14px 34px rgba(6, 40, 24, 0.35),
+    0 0 36px rgba(86, 235, 160, 0.18);
+}
+
+.combo-btn:active {
+  transform: translateY(-1px) scale(0.995);
+}
+
+.combo-btn:focus {
+  outline: 3px solid rgba(86, 235, 160, 0.18);
+  outline-offset: 3px;
+  border-radius: 12px;
+}
+
+/* ================================================= */
+/* RESPONSIVIDADE                 */
+/* ================================================= */
+
+@media (max-width: 720px) {
+  .combo-card img {
+    height: 140px;
+  }
+  .combo-card h3 { font-size: 1.05rem; }
+  .combo-card p { font-size: 0.92rem; }
+  .combo-card .price { font-size: 1.05rem; }
+  .combo-btn { padding: 10px 16px; font-size: 0.95rem; }
+}
+
+/* ---------------------- */
+/*        FOOTER          */
+/* ---------------------- */
+.footer {
+  background: var(--verde-escuro);
+  color: var(--branco);
+  padding: 50px 7%;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+.footer a {
+  display: block;
+  text-decoration: none;
+  color: var(--branco);
+  margin-top: 6px;
+}
+
+
+
+
+/* ---------------------- */
+/*       CARDS 3D         */
+/* ---------------------- */
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+  perspective: 1200px; /* essencial pro efeito 3D */
+}
+
+/* CARD */
+.card_box {
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+  background: linear-gradient(
+    170deg,
+    rgba(7, 38, 21, 0.7) 0%,
+    rgba(21, 72, 45, 1) 100%
+  );
+
+  position: relative;
+  box-shadow: 0 50px 90px rgba(46, 255, 146, 0.25),
+              0 0 50px rgba(18, 140, 80, 0.5);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transform-style: preserve-3d;
+
+  /* GLOW DINÂMICO */
+  --mx: 90%;
+  --my: 50%;
+  --glow: radial-gradient(
+    circle at var(--mx) var(--my),
+    rgba(70, 255, 125, 0.45),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.card_box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: var(--glow);
+  opacity: 0;
+  transition: opacity .3s ease;
+  pointer-events: none;
+}
+
+.card_box:hover::before {
+  opacity: 1;
+}
+
+/* tilt no hover */
+.card_box:hover {
+  transform: rotateX(var(--rx)) rotateY(var(--ry)) scale(0.97);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* FITA */
+.card_box span {
+  position: absolute;
+  overflow: hidden;
+  width: 150px;
+  height: 150px;
+  top: -10px;
+  left: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* FITA - pequena */
+.card_box span::before {
+  content: attr(data-category);
+  position: absolute;
+  width: 150%;
+  height: 40px;
+
+  background-image: linear-gradient(to right top, 
+  #154a2e,
+  #206541, 
+  #2c8254,
+  #39a069,
+  #46bf7e);
+
+  transform: rotate(-45deg) translateY(-20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--preto);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+  font-size: 0.9em;
+}
+
+/* DETALHE DA FITA */
+.card_box span::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  bottom: 0;
+  left: 0;
+  height: 10px;
+  z-index: -1;
+  box-shadow: 140px -140px var(--verde-escuro);
+  background-color: var(--verde-escuro);
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  padding: 10px;
+  padding-top: 50px;
+
+  height: 100%;
+  width: 100%;
+
+  color: var(--branco);
+  text-align: center;
+}
+
+.card-content img {
+  width: 85px;
+  height: 85px;
+  border-radius: 18px;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(4px);
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  transition: all 0.25s ease;
+}
+
+.card_box:hover .card-content img {
+  transform: scale(1.07);
+  filter: brightness(1.15);
+}
+
+/* TÍTULO */
+.card-content h3 {
+  font-size: 1.1em;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  color: var(--verde-ultra);
+}
+
+/* DESCRIÇÃO */
+.card-content p {
+  font-size: 0.9em;
+  line-height: 1.45; 
+  margin-top: 4px;
+  opacity: 0.9; 
+  color: var(--branco);
+  text-align: justify;
+  letter-spacing: 0.2px;
+  text-rendering: optimizeLegibility; 
+  -webkit-font-smoothing: antialiased;
+}
+
+
+
+
+
+
