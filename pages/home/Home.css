@@ -20,7 +20,7 @@
   --sombra: 0 4px 12px rgba(0, 0, 0, 0.15);
   --transicao: all 0.3s ease-in-out;
 
-
+--background:  Linear-gradient( 170deg, Rgba(7, 38, 21, 0.7) 0%, Rgba(21, 72, 45, 1) 100% );
 
   --verde-escuro: #072615;
   --verde-padrao-1: #15482d;
@@ -74,8 +74,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  background: var(--verde-escuro);
-
+  background: var(--background);
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.35);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(8px);
@@ -98,7 +97,9 @@ body {
   font-weight: 900;
   letter-spacing: 1px;
   text-transform: uppercase;
+  
 }
+
 
 /* LINKS */
 .nav-links {
@@ -117,27 +118,58 @@ text-decoration: none;
   cursor: pointer;
   transition: 0.2s;
   border: none;
-  border-radius: var(--radius);
+
 }
+
+@keyframes temperaGlow {
+  0% { box-shadow: 0 0 0px rgba(86, 235, 151, 0.0); }
+  50% { box-shadow: 0 0 12px rgba(86, 235, 151, 0.35); }
+  100% { box-shadow: 0 0 0px rgba(86, 235, 151, 0.0); }
+}
+
+@keyframes neonBorder {
+  0% { border-color: rgba(86, 235, 151, 0.3); }
+  50% { border-color: rgba(86, 235, 151, 1); }
+  100% { border-color: rgba(86, 235, 151, 0.3); }
+}
+
+
+@keyframes magneticHover {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-2px) scale(1.04); }
+  100% { transform: translateY(0); }
+}
+
 .drop-btn {
   font-family: "Calistoga", serif;
-  border: none;
+  background: #468061;
   color: var(--branco);
   font-size: 1rem;
   padding: 8px 6px;
   cursor: pointer;
-  transition: 0.2s;
-  border-radius: var(--radius);
-  background-color: #15482d;
-  width: 100px;
+  width: 7em;
+  height: 2.7em;
+  Border-radius: 0px 14px 0px 14px;
+  animation: temperaGlow 3s infinite ease-in-out,
+             neonBorder 4s infinite linear;
+  transition: 0.25s ease;
 }
-
-/* HOVER GLOW */
-.nav-links a:hover,
 .drop-btn:hover {
   color: var(--verde-claro2);
   text-shadow: 0 0 6px var(--verde-claro2);
+  animation: magneticHover 0.6s ease forwards,
+             temperaGlow 3s infinite ease-in-out,
+             neonBorder 4s infinite linear;
+
+  background: #4fa773;
 }
+
+/* CLICK FEEDBACK */
+.drop-btn:active {
+  transform: scale(0.94);
+  box-shadow: 0 0 6px rgba(86, 235, 151, 0.6);
+}
+
 
 /* DROPDOWN */
 .dropdown {
@@ -644,11 +676,12 @@ text-decoration: none;
 /*        FOOTER          */
 /* ---------------------- */
 .rodape {
-  background: linear-gradient(180deg, var(--roxo-principal) 0%, #2b1b4b 100%);
+  Background: Linear-gradient( 170deg, Rgba(7, 38, 21, 0.7) 0%, Rgba(21, 72, 45, 1) 100% );
   color: #fff;
   padding: 60px 20px 30px;
   animation: fadeInUp 1.4s ease;
   box-shadow: 0 -3px 20px rgba(0, 0, 0, 0.3);
+  
 }
 
 .containerRodape {
@@ -659,15 +692,17 @@ text-decoration: none;
   text-align: left;
   max-width: 1100px;
   margin: 0 auto;
+  
 }
 
 .coluna, .colunaNewsletter {
   flex: 1 1 230px;
   min-width: 200px;
+  
 }
 
 .coluna h3, .colunaNewsletter h3 {
-  color: #ffb800;
+  color: #d6eee1;
   font-size: 1.2rem;
   margin-bottom: 12px;
   text-transform: uppercase;
@@ -678,25 +713,29 @@ text-decoration: none;
   font-size: 0.95rem;
   opacity: 0.9;
   line-height: 1.5;
+  
 }
 
 .coluna ul {
   list-style: none;
   padding: 0;
+  
 }
 
 .coluna ul li {
   margin-bottom: 6px;
+  
 }
 
 .coluna ul li a {
   color: #ffffffcc;
   text-decoration: none;
   transition: color 0.3s;
+  
 }
 
 .coluna ul li a:hover {
-  color: #ffb800;
+  color: #39a069;
 }
 
 /* Newsletter */
@@ -714,7 +753,7 @@ text-decoration: none;
 }
 
 .formNewsletter button {
-  background: #ffb800;
+  background: #39a069;
   border: none;
   color: #2b1b4b;
   font-weight: 600;
@@ -722,10 +761,11 @@ text-decoration: none;
   border-radius: 0 6px 6px 0;
   cursor: pointer;
   transition: 0.3s;
+ Width: 100px; Height: 40px;
 }
 
 .formNewsletter button:hover {
-  background: #ffc83d;
+  background: #39a069;
   transform: scale(1.05);
 }
 
@@ -782,9 +822,9 @@ text-decoration: none;
 }
 
 .socialIcons a:hover {
-  color: #ffb800;
+  color:    #264233;
   transform: translateY(-4px) scale(1.1);
-  text-shadow: 0 0 12px #ffb800;
+  text-shadow: 0 0 12px #39a069;
 }
 
 /* Direitos */
@@ -826,11 +866,7 @@ text-decoration: none;
   width: 300px;
   height: 300px;
   border-radius: 20px;
-  background: linear-gradient(
-    170deg,
-    rgba(7, 38, 21, 0.7) 0%,
-    rgba(21, 72, 45, 1) 100%
-  );
+ Background: Linear-gradient( 170deg, Rgba(7, 38, 21, 0.7) 0%, Rgba(21, 72, 45, 1) 100% );
 
   position: relative;
   box-shadow: 0 50px 90px rgba(46, 255, 146, 0.25),
