@@ -1261,3 +1261,188 @@ Ubuntu, Cantarell, sans-serif;
   padding: 20px 0; 
   
 }
+
+
+
+
+/* ---------------- LOCALIZAÇÃO ---------------- */
+.loc-section {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.loc-section h2 {
+  font-size: 2.5rem;
+}
+
+.loc-map iframe {
+  margin-top: 20px;
+  border-radius: 18px;
+  box-shadow: 0 0 25px #0001;
+}
+
+/* ---------------- AVALIAÇÕES ---------------- */
+
+.reviews {
+  padding: 70px 0;
+  overflow: hidden;
+}
+
+.reviews-track {
+  display: flex;
+  gap: 20px;
+  animation: slideReviews 18s linear infinite;
+  padding: 20px;
+}
+
+.review-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  min-width: 260px;
+  box-shadow: 0 8px 25px #0001;
+  transform: translateZ(0);
+  transition: .3s;
+}
+
+.review-card:hover {
+  transform: scale(1.05);
+}
+
+@keyframes slideReviews {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ---------------- FILIAIS ---------------- */
+
+.filiais {
+  padding: 60px 20px;
+}
+
+.filiais-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.filial-card {
+  background: #f8f8f8;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 0 20px #0001;
+  transition: .3s;
+}
+
+.filial-card:hover {
+  transform: translateY(-6px);
+}
+
+.filial-card iframe {
+  width: 100%;
+  height: 260px;
+  margin-top: 12px;
+  border-radius: 12px;
+}
+
+/* ---------------- ROTATIVO 3D ---------------- */
+
+.card-wrapper {
+            /* Habilita o Flexbox */
+            display: flex;
+            /* Permite que os cartões quebrem para a próxima linha */
+            flex-wrap: wrap; 
+            /* Centraliza os cartões na tela */
+            justify-content: center; 
+            /* Espaço entre os cartões */
+            gap: 20px; 
+            /* Espaçamento geral */
+            padding: 40px; 
+            background-color: #f0f0f0; /* Fundo suave */
+        }
+        
+        /*
+         * ----------------------------------------
+         * 2. ESTILOS DO CARTÃO E EFEITO HOVER
+         * ----------------------------------------
+         */
+        
+        /* From Uiverse.io by gharsh11032000 */ 
+        .card2 {
+          /* ATENÇÃO: A margem de 40px foi removida para usar o 'gap' do card-wrapper */
+          /* margin: 40px; */
+          position: relative;
+          width: 300px;
+          height: 200px;
+          background-color: #f2f2f2;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          perspective: 1000px;
+          box-shadow: 0 0 0 5px #ffffff80;
+          transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Estilo do ícone SVG */
+        .card2 svg {
+          width: 48px;
+          fill: #333;
+          transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Efeito no cartão pai ao passar o mouse */
+        .card2:hover {
+          transform: scale(1.05);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra melhorada */
+        }
+
+        /* Conteúdo que é revelado (inicialmente rotacionado) */
+        .card__content2 {
+          display: flex;
+          flex-direction: column; /* Para empilhar o título e a descrição */
+          align-items: center; /* Centraliza itens na vertical */
+          text-align: center;
+          
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          padding: 20px;
+          box-sizing: border-box;
+          background-color: #f2f2f2;
+          
+          /* Estado inicial: Escondido com rotação 3D */
+          transform: rotateX(-90deg);
+          transform-origin: bottom;
+          transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Ação: Revela o conteúdo ao passar o mouse */
+        .card2:hover .card__content2 {
+          transform: rotateX(0deg); /* Volta à posição normal */
+        }
+
+        /* Estilo do título */
+        .card__title2 {
+          margin: 0;
+          font-size: 24px;
+          color: #333;
+          font-weight: 700;
+        }
+
+        /* Ação: Esconde o ícone ao passar o mouse */
+        .card2:hover svg {
+          scale: 0;
+        }
+
+        /* Estilo da descrição */
+        .card__description2 {
+          margin: 10px 0 0;
+          font-size: 14px;
+          color: #777;
+          line-height: 1.4;
+        }
