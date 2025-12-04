@@ -1266,20 +1266,160 @@ Ubuntu, Cantarell, sans-serif;
 
 
 /* ---------------- LOCALIZAÇÃO ---------------- */
-.loc-section {
-  text-align: center;
-  padding: 60px 20px;
+
+
+
+
+/* VÁRIAVEIS E BASE */
+
+.local-area {
+    --primary-color:  #256d46;
+    --secondary-color: #15482d;
+    --bg-light: #f7f7f7;
+    --transition-speed: 0.3s;
+   
+    padding: 80px 20px;
+    background-color: var(--bg-light);
+    text-align: center;
+    overflow-x: hidden;
 }
 
-.loc-section h2 {
-  font-size: 2.5rem;
+/* --- TÍTULO --- */
+.sec-title {
+    font-size: 2.8em;
+    color: var(--secondary-color);
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    position: relative;
+    display: inline-block;
 }
 
-.loc-map iframe {
-  margin-top: 20px;
-  border-radius: 18px;
-  box-shadow: 0 0 25px #0001;
+.sec-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 15px auto 0;
+    border-radius: 2px;
 }
+
+/* --- WRAPPER E ITENS --- */
+.local-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: stretch;
+    text-align: left;
+}
+
+.local-info {
+    flex: 1;
+    min-width: 300px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-speed) ease-in-out; /* Transição para o hover */
+}
+
+/* Efeito de Hover: Leve levantamento e sombra mais intensa */
+.local-info:hover {
+    transform: translateY(-5px) scale(1.01); 
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); 
+}
+
+.local-info h3 {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    border-bottom: 3px solid #eee;
+    padding-bottom: 10px;
+}
+
+.local-info p:nth-child(3) { 
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.local-info p:nth-child(3)::before {
+    content: "🕒"; 
+    font-size: 1.2em;
+}
+
+.local-map-container {
+    flex: 2;
+    min-width: 350px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.local-map {
+    width: 100%;
+    height: 450px; 
+    border: 0;
+    display: block;
+}
+
+/* --- ESTILOS DE ANIMAÇÃO SCROLL-REVEAL (Chave!) --- */
+
+/* 1. Estado Inicial (Escondido) */
+[data-animate] {
+    opacity: 0;
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* 2. Classes de Posição Inicial */
+
+/* Título vindo de cima */
+[data-animate="fade-down"] {
+    transform: translateY(-30px);
+}
+/* Info vindo da direita */
+[data-animate="fade-right"] {
+    transform: translateX(-50px);
+}
+/* Mapa vindo da esquerda */
+[data-animate="fade-left"] {
+    transform: translateX(50px);
+}
+
+/* 3. Estado Final (Ativado pelo JavaScript) */
+[data-animate].animate-ready {
+    opacity: 1;
+    transform: translate(0, 0); /* Volta para a posição original */
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 992px) {
+    .local-wrapper {
+        flex-direction: column; 
+    }
+    .local-info, .local-map-container {
+        min-width: 100%; 
+    }
+    .local-map {
+        height: 350px; 
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
 /* ---------------- AVALIAÇÕES ---------------- */
 
