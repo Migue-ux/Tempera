@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contato — Tempera</title>
+  <link rel="stylesheet" href="/pages/global/global.css">
+</head>
+<body>
+  <header class="navbar"><div class="nav-container wrap"><a class="logo" href="/pages/home/Home.html"><img src="/Asstes/logo.png" alt="Tempera"></a><nav class="nav-links"><a href="/pages/home/Home.html">Início</a><a href="/pages/Cardapio/cardapio.html">Cardápio</a></nav><div id="mobile-btn" class="mobile-btn">☰</div></div></header>
+
+  <main class="wrap">
+    <section class="hero"><div class="hero-text"><h1>Fala com a gente</h1><p class="muted">Dúvidas, eventos, parcerias — manda mensagem.</p></div></section>
+
+    <section style="display:flex;gap:18px;flex-wrap:wrap">
+    <div class="form-container">
+      <h3>Formulário</h3>
+      <form action="https://formspree.io/f/xblpvqnj" method="POST">
+        <label>Nome</label><input name="name" required placeholder="Digite seu nome">
+        <label>Email</label><input name="email" type="email" required placeholder="Digite seu email">
+        <label>Mensagem</label><textarea name="message" required placeholder="Digite sua mensagem"></textarea>
+        <button class="btn" type="submit">Enviar</button>
+      </form>
+    </div>
+
+      <div style="width:320px;background:rgba(255,255,255,0.02);padding:16px;border-radius:12px">
+        <h3>Contato</h3>
+        <p>Email: contato@tempera.com</p>
+        <p>Telefone: (41) 98765-4321</p>
+        <h4>Endereço</h4>
+        <p>Rua Barão do Rio Branco, 214 – Centro</p>
+        <div style="margin-top:12px">
+          <a class="btn" href="/pages/rastrear/rastrear.html">Rastrear Pedido</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/pages/global/global.js"></script>
+  <script type="module" src="/global/firebase.js"></script>
+
+</body>
+</html>

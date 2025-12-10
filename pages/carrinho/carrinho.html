@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-br">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Carrinho — Tempera</title><link rel="stylesheet" href="/pages/global/global.css"></head>
+<body>
+  <header class="navbar"><div class="nav-container wrap"><a class="logo" href="/pages/home/Home.html">
+    <img src="/Asstes/logo.png" alt="Tempera"></a><nav class="nav-links"><a href="/pages/home/Home.html">Início</a></nav><div id="mobile-btn" class="mobile-btn">☰</div></div></header>
+  <main class="wrap">
+    <section class="hero"><div class="hero-text"><h1>Seu Carrinho</h1><p class="muted">Confere aqui antes de finalizar.</p></div></section>
+
+    <div style="background:var(--card);padding:16px;border-radius:12px;max-width:900px">
+      <div id="cart-contents"></div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+        <div id="cart-total" style="font-weight:800">Total: R$ 0.00</div>
+        <div>
+          <button id="clear-cart" class="btn small" style="background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)">Limpar</button>
+          <button id="checkout" class="btn">Finalizar pedido</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="/pages/global/global.js"></script>
+  <script type="module" src="/global/firebase.js"></script>
+
+  <script>
+    function renderCart(){
+      const cart = window.tempera.getCart();
+      const ctn = document.getElementById('cart-contents');
+      if(cart.length===0){ ctn.innerHTML = '<p class="muted">Carrinho vazio. Adiciona uns pratos 😋</p>'; document.getElementById('cart-total').innerText='Total: R$ 0.00'; return; }
+      ctn.innerHTML = cart.map(it=>`
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:8px;background:rgba(255,255,255,0.02);margin-bottom:8px">
+          <div>
+            <strong>${it.title}</strong><div style="color:var(--muted);font-size:13px">R$ ${it.price.toFixed(2)} x ${it.qty}</div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <button class="btn small" data-decrease="${it.id}">-</button>
+            <button class="btn small" data-increase="${it.id}">+</button>
+            <button class="btn small" data-remove="${it.id}" style="background:transparent;border:1px solid rgba(255,255,255,0.06)">Remover</button>
+          </div>
+        </div>
+      `).join('');
+      const total = cart.reduce((s,i)=>s + i.price*i.qty, 0);
+      document.getElementById('cart-total').innerText = 'Total: R$ ' + total.toFixed(2);
+    }
+
+    document.addEventListener('click', e=>{
+      const inc = e.target.closest('[data-increase]');
+      const dec = e.target.closest('[data-decrease]');
+      const rem = e.target.closest('[data-remove]');
+      if(inc){ const id = inc.dataset.increase; const cart = window.tempera.getCart(); const it = cart.find(i=>i.id==id); if(it) it.qty++; window.tempera.setCart(cart); renderCart(); }
+      if(dec){ const id = dec.dataset.decrease; const cart = window.tempera.getCart(); const it = cart.find(i=>i.id==id); if(it){ it.qty = Math.max(1, it.qty-1); window.tempera.setCart(cart); renderCart(); } }
+      if(rem){ const id = rem.dataset.remove; let cart = window.tempera.getCart(); cart = cart.filter(i=>i.id!=id); window.tempera.setCart(cart); renderCart(); }
+    });
+
+    document.getElementById('clear-cart').addEventListener('click', ()=>{
+      if(confirm('Limpar todo o carrinho?')){ window.tempera.clearCart(); renderCart(); }
+    });document.getElementById('checkout').addEventListener('click', ()=>{
+  const cart = window.tempera.getCart();
+  if(cart.length===0){ 
+    alert('Carrinho vazio.'); 
+    return; 
+  }
+
+  // salva o carrinho temporariamente pra usar no checkout
+  localStorage.setItem("tempera-checkout", JSON.stringify(cart));
+
+  // manda o user pro checkout
+  window.location.href = "/pages/checkout/checkout.html";
+});
+
+
+    renderCart();
+  </script>
+
+
+
+</body>
+</html>

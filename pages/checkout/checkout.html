@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Tempera</title>
+  <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Finalizar Pedido</h1>
+
+    <div class="form">
+      <label>Nome</label>
+      <input type="text" id="nome" placeholder="Nome completo">
+
+      <label>Endereço</label>
+      <input type="text" id="endereco" placeholder="Endereço completo">
+
+      <label>Itens (JSON)</label>
+      <textarea id="itens" title="Itens do pedido em formato JSON">[
+  { "nome": "Frango grelhado", "quantidade": 1, "preco": 25 },
+  { "nome": "Arroz integral", "quantidade": 1, "preco": 12.9 }
+]</textarea>
+
+      <label>Total</label>
+      <input type="number" id="total" step="0.01" title="Valor total do pedido" placeholder="0.00">
+
+      <button id="btnFinalizar">Finalizar pedido</button>
+    </div>
+  </div>
+
+  <script type="module" src="checkout.js"></script>
+  <script type="module">
+  import { db } from "../global/firebase.js";
+  import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  async function enviarPedido() {
+    await addDoc(collection(db, "pedidos"), {
+      nome: "Miguel",
+      status: "pendente",
+      horario: new Date()
+    });
+  }
+
+  enviarPedido();
+</script>
+
+</body>
+</html>

@@ -6,6 +6,49 @@
   <title>Tempera</title>
   <link rel="stylesheet" href="/pages/home/Home.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tempera</title>
+
+  <!-- GLOBAL CSS -->
+  <link rel="stylesheet" href="/global/global.css">
+
+  <!-- CSS DA PÁGINA -->
+  <link rel="stylesheet" href="/pages/home/Home.css">
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- META TAGS SEO -->
+  <meta name="description" content="Tempera - Pratos premium e saudáveis montados para sua rotina. Marmitas Fit, Low Carb e Veganas.">
+  <meta name="keywords" content="marmita, comida saudável, fit, low carb, vegana, delivery, refeição, tempera">
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:title" content="Tempera - Marmitas Premium e Saudáveis">
+  <meta property="og:description" content="Monte seu prato do seu jeito. Rápido, premium e saudável.">
+  <meta property="og:image" content="https://pt.strikingly.com/content/blog/maneiras-de-criar-uma-imagem-de-compartilhamento-social-que-direciona-o-trafego/">
+  <meta property="og:url" content="https://www.youtube.com/watch?v=IqCuJmokBqw">
+  <meta property="og:type" content="website">
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="/Asstes/favicon.png">
+
+  <!-- PRELOAD CSS DA HOME -->
+  <link rel="preload" href="/pages/home/Home.css" as="style">
+
+  <!-- ANIMAÇÕES (AOS) -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+  <!-- SWIPER (CARROSSEL DOS CARDS SE PRECISAR) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+</head>
+
 </head>
 
 <body>
@@ -19,29 +62,36 @@
 
     <!-- MENU -->
     <nav class="nav-links">
-      <a href="#home">Início</a>
+    <a href="/pages/home/Home.html">Início</a>
 
-      <div class="dropdown">
-       
-        <div class="dropdown-menu">
-          <a href="#">Fit</a>
-          <a href="#">Low Carb</a>
-          <a href="#">Vegano</a>
-          <a href="#">Tradicional</a>
-          <a href="#">Massas</a>
+    
+    
+      <a href="/pages/contato/contato.html">Contato</a>
+      <a href="/pages/montagem/montagem.html">Monte sua marmita</a>
+      <a href="/pages/entrega/rastreio.html">Rastrear pedido</a>
+
+    <div class="dropdown">
+        <button class="drop-btn" aria-expanded="false" aria-controls="menu-cardapio">Cardápio 
+            <i class="fas fa-chevron-down"></i> </button>
+        
+        <div class="dropdown-menu" id="menu-cardapio">
+            <a href="/pages/Cardapio/cardapio.html">Fit</a>
+            <a href="/pages/Cardapio/lowcarb.html">Low Carb</a>
+            <a href="/pages/Cardapio/vegano.html">Vegano</a>
+            <a href="/pages/Cardapio/tradicional.html">Tradicional</a>
+            <a href="/pages/Cardapio/massas.html">Massas</a>
         </div>
-      </div>
-
-      <a href="#monte">Monte sua Marmita</a>
-      <a href="#entrega">Rastrear Pedido</a>
-      <a href="#contato">Contato</a>
-       <button class="drop-btn">Cardápio </button>
-    </nav>
+    </div>
+    <a href="/pages/busca/busca.html" class="nav-icon" aria-label="Pesquisar Pratos"><i class="fas fa-search"></i></a>
+    <a href="/pages/carrinho/carrinho.html" class="nav-icon" aria-label="Carrinho de Compras"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+</nav>
 
     <!-- BOTÃO MOBILE -->
     <div class="mobile-btn" id="mobile-btn">☰</div>
 
   </div>
+
+  
   </header>
 
 
@@ -50,7 +100,7 @@
     <div class="hero-text">
       <h1>Alimente o Presente.<br><span>Pratos feitos para sua rotina.</span></h1>
       <p>Monte sua refeição do seu jeito. Rápido, premium e saudável.</p>
-      <a class="cta-big" href="#marmita">Montar Meu Prato</a>
+      <a class="cta-big" href="/pages/montagem/index.html">Montar Meu Prato</a>
     </div>
 
     <img class="hero-img" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd" alt="Comida Premium">
@@ -123,12 +173,63 @@
 
 
 
-  <section id="marmita" class="marmita-builder">
-    <h2>Monte Sua Marmita</h2>
-    <p>Escolha proteínas, acompanhamentos e adicionais do seu jeito.</p>
+<section id="marmita" class="marmita-builder">
+    <div class="marmita-content">
+        <h2>Crie Seu Prato Perfeito</h2>
+        
+        <ul class="benefit-list">
+    <li>
+        <i class="fas fa-magic"></i> 
+        <strong>Crie do Zero:</strong> Misture e combine ingredientes para um prato 100% ao seu gosto.
+    </li>
+    
+    <li>
+        <i class="fas fa-balance-scale"></i> 
+        <strong>Dieta sob Controle:</strong> Opções perfeitas para fitness, low carb e qualquer objetivo.
+    </li>
+    
+    <li>
+        <i class="fas fa-motorcycle"></i> 
+        <strong>Praticidade Máxima:</strong> Receba tudo fresco e rápido onde você estiver.
+    </li>
+</ul>
 
-    <a href="#" class="builder-btn">Começar Agora</a>
-  </section>
+        <p class="cta-description">
+            Do tempero à montagem, o prato é seu! Selecione a proteína, os melhores acompanhamentos e adicione o toque final com nossos molhos e toppings premium.
+        </p>
+
+        <a href="/pages/montagem/index.html" class="builder-btn large-cta-btn">
+            <i class="fas fa-box-open"></i> Montar Minha Marmita Personalizada
+        </a>
+    </div>
+    
+    <div class="marmita-visual">
+        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd" alt="Ícone de Personalização de Marmita" class="customize-img">
+    </div>
+</section>
+
+
+
+  <section class="how-it-works">
+    <div class="container-steps">
+        <h2>Como Funciona?</h2>
+        <div class="step-card">
+            <i class="fas fa-utensils"></i> <h3>1. Escolha ou Monte</h3>
+            <p>Selecione um de nossos combos ou crie sua marmita do zero.</p>
+        </div>
+
+        <div class="step-card">
+            <i class="fas fa-shipping-fast"></i> <h3>2. Confirme o Pedido</h3>
+            <p>Adicione seu endereço e escolha a melhor forma de pagamento.</p>
+        </div>
+
+        <div class="step-card">
+            <i class="fas fa-home"></i> <h3>3. Receba e Saboreie!</h3>
+            <p>Prato na sua porta, pronto para aquecer e desfrutar.</p>
+        </div>
+    </div>
+</section>
+
 
 
 <section id="combos" class="categories">
@@ -267,7 +368,7 @@
   <h2 class="sec-title" data-animate="fade-down">Onde Estamos</h2>
 
   <div class="local-wrapper">
-    <div class="local-info" data-animate="fade-right">
+    <div class="local-info" id="card-parallax" data-animate="fade-right">
       <h3> Unidade Central</h3>
       <p><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#38a169"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg> Rua Barão do Rio Branco, 214 – Centro</p>
       <p><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#38a169"><path d="M480-80q-75 0-140.5-28.5t-114-77q-48.5-48.5-77-114T120-440q0-75 28.5-140.5t77-114q48.5-48.5 114-77T480-800q75 0 140.5 28.5t114 77q48.5 48.5 77 114T840-440q0 75-28.5 140.5t-77 114q-48.5 48.5-114 77T480-80Zm0-360Zm112 168 56-56-128-128v-184h-80v216l152 152ZM224-866l56 56-170 170-56-56 170-170Zm512 0 170 170-56 56-170-170 56-56ZM480-160q117 0 198.5-81.5T760-440q0-117-81.5-198.5T480-720q-117 0-198.5 81.5T200-440q0 117 81.5 198.5T480-160Z"/></svg> Seg a Sex • 8h às 18h</p>
@@ -310,117 +411,113 @@
 
 
 
+<section class="reviews-section" aria-labelledby="reviews-title">
+    <h2 id="reviews-title" class="sec-title">O que a galera tá falando</h2>
 
-<!-- avaliacoes -->
- <section class="reviews">
-  <h2>O que a galera tá falando</h2>
+    <div class="reviews-wrapper" role="group" aria-label="Avaliações de Clientes">
+        
+        <div class="reviews-track">
+            
+            <div class="review-card">
+                <div class="review-rating" aria-label="5 estrelas">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"Melhor marmita da cidade. Tempero é simplesmente impecável."</p>
+                <span class="review-author">— Júlia M.</span>
+            </div>
 
-  <div class="reviews-track">
-    <div class="review-card">
-      ⭐⭐⭐⭐⭐  
-      <p>"Melhor marmita da cidade. Tempera é simplesmente impecável."</p>
-      <span>— Júlia M.</span>
+            <div class="review-card">
+                <div class="review-rating" aria-label="5 estrelas">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"Entrega rápida, comida fresca e saborosa. Virou rotina."</p>
+                <span class="review-author">— Rafael P.</span>
+            </div>
+
+            <div class="review-card">
+                <div class="review-rating" aria-label="4 estrelas">⭐⭐⭐⭐☆</div>
+                <p class="review-text">"O sabor surpreende! Montei prato low carb top."</p>
+                <span class="review-author">— Camila S.</span>
+            </div>
+
+            <div class="review-card">
+                <div class="review-rating" aria-label="5 estrelas">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"Tempero que abraça. Podem pedir sem medo!"</p>
+                <span class="review-author">— Bruno L.</span>
+            </div>
+
+            </div>
     </div>
+</section>
 
-    <div class="review-card">
-      ⭐⭐⭐⭐⭐  
-      <p>"Entrega rápida, comida fresca e saborosa. Virou rotina."</p>
-      <span>— Rafael P.</span>
-    </div>
+<section class="branches-section" aria-labelledby="branches-title">
+    <h2 id="branches-title" class="sec-title">Nossas Unidades</h2>
 
-    <div class="review-card">
-      ⭐⭐⭐⭐☆  
-      <p>"O sabor surpreende! Montei prato low carb top."</p>
-      <span>— Camila S.</span>
-    </div>
+    <div class="branches-grid">
+        
+        <div class="branch-card" data-branch="centro">
+            <h3 class="branch-title">Tempera — Centro</h3>
+            <div class="map-container">
+                <div class="map-placeholder" onclick="loadMap(this)" data-map-loaded="false">
+                    <p>Clique para carregar o mapa interativo.</p>
+                </div>
+                <iframe 
+                    class="branch-map" 
+                    data-src="https://maps.google.com/maps?q=Centro+Tempera&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;"
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    tabindex="-1">
+                </iframe>
+            </div>
+        </div>
 
-    <div class="review-card">
-      ⭐⭐⭐⭐⭐  
-      <p>"Tempero que abraça. Podem pedir sem medo!"</p>
-      <span>— Bruno L.</span>
+        <div class="branch-card" data-branch="zonasul">
+            <h3 class="branch-title">Tempera — Zona Sul</h3>
+            <div class="map-container">
+                <div class="map-placeholder" onclick="loadMap(this)" data-map-loaded="false">
+                    <p>Clique para carregar o mapa interativo.</p>
+                </div>
+                <iframe 
+                    class="branch-map" 
+                    data-src="https://maps.google.com/maps?q=Zona+Sul+Tempera&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    tabindex="-1">
+                </iframe>
+            </div>
+        </div>
+
+        <div class="branch-card" data-branch="vilanova">
+            <h3 class="branch-title">Tempera — Vila Nova</h3>
+            <div class="map-container">
+                <div class="map-placeholder" onclick="loadMap(this)" data-map-loaded="false">
+                    <p>Clique para carregar o mapa interativo.</p>
+                </div>
+                <iframe 
+                    class="branch-map" 
+                    data-src="https://maps.google.com/maps?q=Vila+Nova+Tempera&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    tabindex="-1">
+                </iframe>
+            </div>
+        </div>
+        
     </div>
-  </div>
 </section>
 
 
-<!-- filiais -->
-<section class="filiais">
-  <h2>Nossas Unidades</h2>
 
-  <div class="filiais-grid">
-    <div class="filial-card">
-      <h3>Tempera — Centro</h3>
-     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28274.530274858225!2d-48.693871856249935!3d-27.645684561706176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x952735294a4ac39d%3A0x9ea335b4a8530868!2sJotamar%20Restaurante!5e0!3m2!1spt-BR!2sbr!4v1764787563739!5m2!1spt-BR!2sbr" 
-          width="600" 
-          height="450" 
-          style="border:0;"
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-    </div>
 
-    <div class="filial-card">
-      <h3>Tempera — Zona Sul</h3>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28274.530274858225!2d-48.693871856249935!3d-27.645684561706176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9527351612d92dbb%3A0x8362eb268bc863a5!2sDi%20Roma%20Pizza!5e0!3m2!1spt-BR!2sbr!4v1764787696424!5m2!1spt-BR!2sbr" 
-          width="600" 
-          height="450" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy"  
-          referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-    </div>
 
-    <div class="filial-card">
-      <h3>Tempera — Vila Nova</h3>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28274.530274858225!2d-48.693871856249935!3d-27.645684561706176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95273588a3aa1179%3A0xd59eaadfc4ff956f!2sCaff%C3%A8%20Della%20Famiglia!5e0!3m2!1spt-BR!2sbr!4v1764787739296!5m2!1spt-BR!2sbr" 
-          width="600" 
-          height="450" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-    </div>
-  </div>
-</section>
-
-<!-- cards inferiores -->
-<div class="card-wrapper">
-    <div class="card2">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg>
-      
-      <div class="card__content2">
-        <p class="card__title2">Card de Fotos</p>
-        <p class="card__description2">Clique para ver nossa galeria. Este conteúdo é revelado com uma transição 3D suave.</p>
-      </div>
-    </div>
-
-    <div class="card2">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg>
-      <div class="card__content2">
-        <p class="card__title2">Serviços Online</p>
-        <p class="card__description2">Encontre o que você precisa em nosso catálogo de serviços e suporte.</p>
-      </div>
-    </div>
-
-    <div class="card2">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg>
-      <div class="card__content2">
-        <p class="card__title2">Fale Conosco</p>
-        <p class="card__description2">Envie uma mensagem ou ligue para nossa central. Estamos prontos para ajudar.</p>
-      </div>
-    </div>
-
-    <div class="card2">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg>
-      <div class="card__content2">
-        <p class="card__title2">Outras Opções</p>
-        <p class="card__description2">Explore mais funcionalidades e informações adicionais da nossa plataforma.</p>
-      </div>
-    </div>
-</div>
 
 <footer class="rodape">
   <div class="containerRodape">
@@ -439,18 +536,20 @@
       <p> Seg a Sex — 8h às 18h</p>
     </div>
 
-    <div class="coluna">
-      <h3>Links úteis</h3>
-      <ul>
-        <li><a href="/quero-adotar">Quero Adotar</a></li>
-        <li><a href="/como-ajudar">Doe Agora</a></li>
-        <li><a href="/voluntario">Seja Voluntário</a></li>
-        <li><a href="/match">Match</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/EventsPage">Eventos</a></li>
-        <li><a href="/EventDetails">Eventos Detalhes</a></li>
-      </ul>
-    </div>
+  <div class="coluna">
+    <h3>Links úteis</h3>
+    <ul>
+        <li><a href="/faq">Perguntas Frequentes (FAQ)</a></li>
+        <li><a href="/termos">Termos de Uso</a></li>
+        <li><a href="/politica-privacidade">Política de Privacidade</a></li>
+         <li><a href="#monte">Monte sua Marmita</a></li>
+        <li><a href="/blog">Dicas de Alimentação</a></li>
+        <li><a href="#combos">Combos e Promoções</a></li>
+    </ul>
+</div>
+
+
+    
 
     <div class="colunaNewsletter">
       <h3>Fique por dentro</h3>
@@ -505,7 +604,20 @@
 </footer>
 
 
-  <script src="/pages/home/Home.js"></script>
+ <!-- Mobile Menu -->
+<script src="/global/menu-mobile.js"></script>
+
+<!-- AOS (Animações on scroll) -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+<!-- Swiper (se você usar carrosséis) -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Seu script da home -->
+<script src="/pages/home/Home.js"></script>
 
 </body>
 </html>

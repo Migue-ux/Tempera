@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel - Tempera</title>
+  <link rel="stylesheet" href="painel.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Painel da Cozinha</h1>
+
+    <div id="listaPedidos"></div>
+
+  </div>
+
+  <script type="module" src="painel.js"></script>
+
+  <script type="module">
+  import { db } from "../global/firebase.js";
+  import { collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  const pedidosRef = collection(db, "pedidos");
+
+  onSnapshot(pedidosRef, (snapshot) => {
+    snapshot.docChanges().forEach((change) => {
+      console.log("Mudança detectada:", change.type, change.doc.data());
+    });
+  });
+</script>
+
+</body>
+</html>

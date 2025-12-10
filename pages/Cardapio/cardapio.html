@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cardápio — Tempera</title>
+  <link rel="stylesheet" href="/pages/global/global.css">
+  <link rel="icon" href="/Asstes/favicon.png">
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container wrap">
+      <a class="logo" href="/pages/home/Home.html"><img src="/Asstes/logo.png" alt="Tempera"></a>
+      <nav class="nav-links">
+        <a href="/pages/home/Home.html">Início</a>
+        <a href="/pages/Cardapio/cardapio.html">Cardápio</a>
+        <a href="/montagem/index.html">Monte</a>
+        <a href="/pages/contato/contato.html">Contato</a>
+        <a class="nav-icon" href="/pages/busca/busca.html"><i class="fas fa-search"></i></a>
+        <a class="nav-icon" href="/pages/carrinho/carrinho.html"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+      </nav>
+      <div id="mobile-btn" class="mobile-btn">☰</div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" style="padding:20px">
+      <div class="hero-text">
+        <h1>Cardápio</h1>
+        <p class="muted">Escolhe a vibe: Fit, Low Carb, Vegano e muito mais.</p>
+      </div>
+    </section>
+
+    <section class="categories">
+      <h2>Categorias</h2>
+      <div class="container">
+        <div class="card_box"><div class="card-content"><img src="/Asstes/prato1.png" alt="Low Carb"><h3><a href="lowcarb.html" class="card-link">Low Carb</a></h3><p>Sem excesso de carbo.</p></div></div>
+        <div class="card_box"><div class="card-content"><img src="/Asstes/prato2.png" alt="Fit"><h3><a href="lowcarb.html" class="card-link">Fit</a></h3><p>Proteína + veggies.</p></div></div>
+        <div class="card_box"><div class="card-content"><img src="/Asstes/prato4.png" alt="Vegano"><h3><a href="vegano.html" class="card-link">Vegano</a></h3><p>100% plantas.</p></div></div>
+        <div class="card_box"><div class="card-content"><img src="/Asstes/prato3.png" alt="Tradicional"><h3><a href="tradicional.html" class="card-link">Tradicional</a></h3><p>Comida caseira.</p></div></div>
+      </div>
+    </section>
+
+    <section style="margin-top:24px">
+      <h2>Pratos em destaque</h2>
+      <div class="card-wrapper">
+        <!-- três cards de exemplo -->
+        <div class="card">
+          <div class="card__badge">Novo</div>
+          <div class="card__image"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd" alt=""></div>
+          <div class="card__text"><p class="card__title">Frango Fit</p><p class="card__description">Frango grelhado, quinoa, brócolis.</p></div>
+          <div class="card__footer" style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+            <div class="card__price">R$ 22,90</div>
+            <button class="btn small" data-add-to-cart data-id="fit-frango" data-title="Frango Fit" data-price="22.9" data-label="Adicionar">Adicionar</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__badge">Vegan</div>
+          <div class="card__image"><img src="/Asstes/prato4.png" alt=""></div>
+          <div class="card__text"><p class="card__title">Bowl Veggie</p><p class="card__description">Grão-de-bico, abóbora, mix de folhas.</p></div>
+          <div class="card__footer" style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+            <div class="card__price">R$ 21,90</div>
+            <button class="btn small" data-add-to-cart data-id="veg-bowl" data-title="Bowl Veggie" data-price="21.9" data-label="Adicionar">Adicionar</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__badge">Promo</div>
+          <div class="card__image"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt=""></div>
+          <div class="card__text"><p class="card__title">Zero Carbo</p><p class="card__description">Carne, mix de legumes low-carb.</p></div>
+          <div class="card__footer" style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+            <div class="card__price">R$ 24,90</div>
+            <button class="btn small" data-add-to-cart data-id="low-zero" data-title="Zero Carbo" data-price="24.9" data-label="Adicionar">Adicionar</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__badge">Gourmet</div>
+          <div class="card__image"><img src="/Asstes/prato3.png" alt=""></div>
+          <div class="card__text"><p class="card__title">Prato Gourmet</p><p class="card__description">Seleção premium, 1 porção.</p></div>
+          <div class="card__footer" style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+            <div class="card__price">R$ 39,90</div>
+            <button class="btn small" data-add-to-cart data-id="gourmet1" data-title="Prato Gourmet" data-price="39.9" data-label="Adicionar">Adicionar</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+  <script src="/pages/global/global.js"></script>
+  <script type="module" src="/global/firebase.js"></script>
+
+</body>
+</html>

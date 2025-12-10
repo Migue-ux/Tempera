@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Monte sua Marmita — Tempera</title>
+  <link rel="stylesheet" href="/pages/global/global.css">
+  <style>
+    /* pequenos estilos exclusivos */
+    .builder-grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
+    .choices{background:var(--card);padding:12px;border-radius:12px}
+    .plate-preview{background:linear-gradient(180deg,#061224,#071a2a);padding:16px;border-radius:12px;min-height:320px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .ingredient{display:flex;justify-content:space-between;align-items:center;padding:8px;border-radius:8px;background:rgba(255,255,255,0.02);margin-bottom:8px}
+    .total{font-weight:800;margin-top:8px}
+  </style>
+</head>
+<body>
+  <header class="navbar"><div class="nav-container wrap"><a class="logo" href="/pages/home/Home.html"><img src="/Asstes/logo.png" alt="Tempera"></a><nav class="nav-links"><a href="/pages/home/Home.html">Início</a></nav><div id="mobile-btn" class="mobile-btn">☰</div></div></header>
+
+  <main class="wrap">
+    <section class="hero"><div class="hero-text"><h1>Monte sua marmita</h1><p class="muted">Escolhe proteína, base e toppings — a conta aparece na hora.</p></div></section>
+
+    <section class="builder-grid">
+      <div>
+        <div class="choices">
+          <h3>Proteínas</h3>
+          <div id="proteins">
+            <label class="ingredient"><span>Frango grelhado</span><span>R$ 8,00 <button class="btn small" data-add-ing data-id="p-frango" data-title="Frango grelhado" data-price="8">+ Add</button></span></label>
+            <label class="ingredient"><span>Carne bovina</span><span>R$ 10,00 <button class="btn small" data-add-ing data-id="p-carne" data-title="Carne bovina" data-price="10">+ Add</button></span></label>
+            <label class="ingredient"><span>Tofu</span><span>R$ 6,00 <button class="btn small" data-add-ing data-id="p-tofu" data-title="Tofu" data-price="6">+ Add</button></span></label>
+          </div>
+
+          <h3>Base</h3>
+          <div id="bases">
+            <label class="ingredient"><span>Arroz integral</span><span>R$ 3,00 <button class="btn small" data-add-ing data-id="b-arroz" data-title="Arroz integral" data-price="3">+ Add</button></span></label>
+            <label class="ingredient"><span>Quinoa</span><span>R$ 4,00 <button class="btn small" data-add-ing data-id="b-quinoa" data-title="Quinoa" data-price="4">+ Add</button></span></label>
+          </div>
+
+          <h3>Toppings</h3>
+          <div id="toppings">
+            <label class="ingredient"><span>Molho especial</span><span>R$ 2,00 <button class="btn small" data-add-ing data-id="t-molho" data-title="Molho especial" data-price="2">+ Add</button></span></label>
+            <label class="ingredient"><span>Sementes</span><span>R$ 1,50 <button class="btn small" data-add-ing data-id="t-sementes" data-title="Sementes" data-price="1.5">+ Add</button></span></label>
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="plate-preview">
+          <h3>Seu Prato</h3>
+          <div id="selected-list" style="width:100%;margin-top:8px"></div>
+          <div class="total" id="total-price">Total: R$ 0.00</div>
+          <div style="margin-top:12px;display:flex;gap:8px">
+            <button id="add-all-cart" class="btn">Adicionar ao carrinho</button>
+            <button id="reset-btn" class="btn small" style="background:transparent;border:1px solid rgba(255,255,255,0.06)">Reset</button>
+          </div>
+        </div>
+
+      </aside>
+    </section>
+  </main>
+
+  <script src="/pages/global/global.js"></script>
+  <script type="module" src="/global/firebase.js"></script>
+
+  <script>
+    // montagem logic (local state)
+    (function(){
+      const selected = [];
+      const selList = document.getElementById('selected-list');
+      const totalEl = document.getElementById('total-price');
+
+      function render(){
+        selList.innerHTML = '';
+        let sum = 0;
+        selected.forEach(it=>{
+          const el = document.createElement('div');
+          el.style.display='flex';el.style.justifyContent='space-between';el.style.padding='8px';el.style.borderRadius='8px';el.style.background='rgba(255,255,255,0.02)';el.style.marginBottom='8px';
+          el.innerHTML = `<div>${it.title} <small style="color:var(--muted);font-size:12px">x${it.qty}</small></div><div>R$ ${(it.price*it.qty).toFixed(2)}</div>`;
+          const rem = document.createElement('button'); rem.textContent='✕'; rem.style.marginLeft='8px'; rem.className='btn small';
+          rem.onclick = ()=>{ removeOne(it.id) };
+          el.appendChild(rem);
+          selList.appendChild(el);
+          sum += it.price*it.qty;
+        });
+        totalEl.innerText = 'Total: R$ ' + sum.toFixed(2);
+      }
+
+      function addOne(id,title,price){
+        const found = selected.find(x=>x.id===id);
+        if(found) found.qty++;
+        else selected.push({id,title,price,qty:1});
+        render();
+      }
+      function removeOne(id){
+        const idx = selected.findIndex(x=>x.id===id);
+        if(idx>=0){
+          selected.splice(idx,1);
+          render();
+        }
+      }
+
+      document.addEventListener('click', e=>{
+        const add = e.target.closest('[data-add-ing]');
+        if(!add) return;
+        addOne(add.dataset.id, add.dataset.title, parseFloat(add.dataset.price));
+      });
+
+      document.getElementById('reset-btn').addEventListener('click', ()=>{ selected.length=0; render() });
+
+      document.getElementById('add-all-cart').addEventListener('click', ()=>{
+        if(selected.length===0){ alert('Escolhe pelo menos um ingrediente 🤏'); return; }
+        const cart = window.tempera.getCart();
+        selected.forEach(it=>{
+          const idx = cart.findIndex(c=>c.id===it.id);
+          if(idx>=0) cart[idx].qty += it.qty;
+          else cart.push({id:it.id,title:it.title,price:it.price,qty:it.qty});
+        });
+        window.tempera.setCart(cart);
+        alert('Prato adicionado ao carrinho! 🍱');
+      });
+
+      render();
+
+    })();
+  </script>
+</body>
+</html>

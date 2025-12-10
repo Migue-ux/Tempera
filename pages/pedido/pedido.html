@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acompanhar Pedido - Tempera</title>
+  <link rel="stylesheet" href="pedido.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Acompanhar Pedido</h1>
+
+    <div class="pedido-box">
+      <p><strong>ID do Pedido:</strong> <span id="pedidoId"></span></p>
+      <p><strong>Status:</strong> <span id="pedidoStatus"></span></p>
+
+      <h3 class="title">Itens</h3>
+      <ul id="pedidoItens"></ul>
+
+      <p class="total"><strong>Total:</strong> R$ <span id="pedidoTotal"></span></p>
+
+      <p class="time"><strong>Criado em:</strong> <span id="pedidoCriado"></span></p>
+    </div>
+
+  </div>
+
+  <!-- FIREBASE -->
+  <script type="module" src="pedido.js"></script>
+
+</body>
+</html>

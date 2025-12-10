@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Low Carb — Tempera</title>
+  <link rel="stylesheet" href="/pages/global/global.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container wrap">
+      <a class="logo" href="/pages/home/Home.html"><img src="/Asstes/logo.png" alt="Tempera"></a>
+      <nav class="nav-links">
+        <a href="/pages/home/Home.html">Início</a>
+        <a href="/pages/Cardapio/cardapio.html">Cardápio</a>
+        <a href="/montagem/index.html">Monte</a>
+      </nav>
+      <div id="mobile-btn" class="mobile-btn">☰</div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Low Carb</h1>
+        <p class="muted">Opções com baixo carbo e muito sabor.</p>
+      </div>
+    </section>
+
+    <section style="margin-top:18px">
+      <div class="card-wrapper">
+        <!-- item -->
+        <div class="card">
+          <div class="card__image"><img src="/Asstes/prato2.png" alt=""></div>
+          <div class="card__text"><p class="card__title">Filé LowCarb</p><p class="card__description">Carne, couve-flor assada e molho especial.</p></div>
+          <div class="card__footer" style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+            <div class="card__price">R$ 27,50</div>
+            <button class="btn small" data-add-to-cart data-id="low-001" data-title="Filé LowCarb" data-price="27.5">Adicionar</button>
+          </div>
+        </div>
+
+        <!-- repetir cards conforme precisar -->
+
+      </div>
+    </section>
+  </main>
+
+  <script src="/pages/global/global.js"></script>
+  <script type="module" src="/global/firebase.js"></script>
+
+</body>
+</html>

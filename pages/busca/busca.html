@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pt-br">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Buscar — Tempera</title><link rel="stylesheet" href="/pages/global/global.css"></head>
+<body>
+  <header class="navbar"><div class="nav-container wrap"><a class="logo" href="/pages/home/Home.html">
+    <img src="/Asstes/logo.png" alt="Tempera"></a><nav class="nav-links"><a href="/pages/home/Home.html">Início</a></nav><div id="mobile-btn" class="mobile-btn">☰</div></div></header>
+  <main class="wrap">
+    <section class="hero"><div class="hero-text"><h1>Buscar</h1><p class="muted">Procura prato, categoria ou combo.</p></div></section>
+
+    <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px">
+      <input id="search-input" placeholder="Procure por 'frango', 'vegano'..." style="flex:1;padding:10px;border-radius:8px;border:0">
+      <button class="btn" onclick="performSearch(document.getElementById('search-input').value)">Buscar</button>
+    </div>
+
+    <div id="search-results"></div>
+  </main>
+
+  <script src="/pages/global/global.js"></script>
+  <script type="module" src="/global/firebase.js"></script>
+
+</body>
+</html>

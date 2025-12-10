@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-br">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Rastrear Pedido — Tempera</title><link rel="stylesheet" href="/pages/global/global.css"></head>
+<body>
+  <header class="navbar"><div class="nav-container wrap"><a class="logo" href="/pages/home/Home.html">
+    <img src="/Asstes/logo.png" alt="Tempera"></a><nav class="nav-links"><a href="/pages/home/Home.html">Início</a></nav><div id="mobile-btn" class="mobile-btn">☰</div></div></header>
+  <main class="wrap">
+    <section class="hero"><div class="hero-text"><h1>Rastrear Pedido</h1><p class="muted">Coloca o código do seu pedido e a gente mostra onde ele tá.</p></div></section>
+
+    <div style="background:var(--card);padding:16px;border-radius:12px;max-width:720px">
+      <label>Código do Pedido</label>
+      <input id="track-code" style="width:100%;padding:10px;border-radius:8px;border:0;margin:8px 0" placeholder="Ex: TEM123456">
+      <button id="track-btn" class="btn">Rastrear</button>
+
+      <div id="track-result" style="margin-top:12px"></div>
+    </div>
+  </main>
+
+  <script src="/pages/global/global.js"></script>
+  <script type="module" src="/global/firebase.js"></script>
+
+  <script>
+    document.getElementById('track-btn').addEventListener('click', ()=>{
+      const code = document.getElementById('track-code').value.trim();
+      const out = document.getElementById('track-result');
+      if(!code){ out.innerHTML = '<p class="muted">Digite um código válido.</p>'; return; }
+      // demo: fake stages
+      out.innerHTML = '<p class="muted">Consultando...</p>';
+      setTimeout(()=>{
+        // show fake timeline
+        out.innerHTML = `
+          <div style="background:rgba(255,255,255,0.02);padding:12px;border-radius:10px">
+            <strong>Pedido ${code}</strong>
+            <ul style="margin-top:8px;color:var(--muted)">
+              <li>Preparação: Está a cozinhar!!</li>
+              <li>Saindo para entrega: Quase indo aí!</li>
+              <li>Entregador a caminho: Opa, Cheguei!</li>
+            </ul>
+            <p style="margin-top:8px">Tempo estimado: <strong>12 minutos</strong></p>
+          </div>
+        `;
+      },700);
+    });
+  </script>
+</body>
+</html>

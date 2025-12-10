@@ -63,7 +63,7 @@ html {
 }
 
 body {
-  background-color: var(--cinza);
+  background-color:#F7FEF7;
   color: #222;
   overflow-x: hidden;
   font-family: "Calistoga", serif;
@@ -177,6 +177,7 @@ text-decoration: none;
 }
 
 .dropdown-menu {
+ 
   display: none;
   position: absolute;
   background: var(--verde-padrao-1);
@@ -189,11 +190,13 @@ text-decoration: none;
 
 .dropdown-menu a {
   display: block;
+   z-index: 9999;
   padding: 8px;
   border-radius: 6px;
 }
 
 .dropdown-menu a:hover {
+   z-index: 9999;
   background: var(--verde-claro1);
   color: var(--preto);
 }
@@ -289,6 +292,7 @@ text-decoration: none;
   border-radius: var(--radius);
   position: relative;
   overflow: hidden;
+   z-index: -999;
 
   /* Profundidade real */
   transform-style: preserve-3d;
@@ -429,30 +433,139 @@ text-decoration: none;
 
 /* ---------------------- */
 /*   MONTE SUA MARMITA    */
-/* ---------------------- */
+/* ---------------------- *//* --- ESTILOS PARA A SEÇÃO MONTE SUA MARMITA MELHORADA --- */
 .marmita-builder {
-  background: var(--verde-claro-1);
-  padding: 70px 7%;
-  text-align: center;
-  color: var(--branco);
+    background-color: #38a169; /* Verde da sua marca ou uma cor de destaque */
+    color: white;
+    padding: 80px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 40px;
+    text-align: left;
 }
 
 .marmita-builder h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
+    color: white;
+    font-size: 2.5em;
+    margin-bottom: 20px;
 }
 
+.marmita-content {
+    max-width: 550px;
+}
+/* --- Melhoria na Lista de Benefícios (Dentro do .marmita-builder) --- */
+
+.benefit-list {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+    display: grid; /* Usamos Grid para organizar melhor os itens */
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+    gap: 15px; /* Espaço entre os itens */
+    width: 100%;
+}
+
+.benefit-list li {
+    /* Opcional: Estiliza o LI como um pequeno 'card' de informação */
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo sutilmente branco */
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 0.95em;
+    line-height: 1.4;
+    display: flex;
+    flex-direction: column; /* Ícone e texto em coluna */
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.benefit-list li:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Sutil efeito hover */
+}
+
+.benefit-list li i {
+    /* Ícone em destaque */
+    color: var(--verde-padrao-1); /* Amarelo ouro para contraste */
+    margin-bottom: 10px;
+    font-size: 1.8em; /* Ícone maior */
+}
+
+.benefit-list li strong {
+    /* Destaque para o título do benefício */
+    display: block;
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+
+/* Responsividade para a lista de benefícios */
+@media (max-width: 900px) {
+    .benefit-list {
+        grid-template-columns: repeat(1, 1fr); /* 1 coluna no mobile para melhor leitura */
+        gap: 10px;
+    }
+}
+.cta-description {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Estilo para o botão de CTA aprimorado */
 .builder-btn {
-  margin-top: 22px;
-  padding: 14px 30px;
-  background: var(--branco);
-  color: var(--verde-escuro);
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 700;
+    display: inline-flex; /* Permite o ícone ao lado do texto */
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #3bb37b; /* Vermelho ou cor de destaque forte */
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+    cursor: pointer;
 }
 
+.builder-btn:hover {
+    background-color: #0c7a1b70;
+    transform: translateY(-2px);
+}
 
+.builder-btn i {
+    margin-right: 10px;
+    font-size: 1.4em;
+}
+
+/* Estilo para o visual (se você tiver uma imagem de personalização) */
+.marmita-visual {
+    max-width: 300px;
+}
+
+.customize-img {
+    width: 25em;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .marmita-builder {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .marmita-content {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .benefit-list {
+        text-align: left; /* Mantém a lista alinhada */
+    }
+}
 
 
 /* ---------------------- */
@@ -1266,89 +1379,133 @@ Ubuntu, Cantarell, sans-serif;
 
 
 /* ---------------- LOCALIZAÇÃO ---------------- */
+:root {
+    --primary-color: #38a169;
+    --accent-color: #256d46;
+    --secondary-color: #343a40;
+    --bg-light: #f7fef7;
+    --transition-speed: 0.3s;
+    --shine-speed: 2s;
+    --fast-transition: 0.3s;
+}
 
-
+/* Base do Cartão local-info */
 .local-info {
-  --primary-color: #38a169; /* Verde (Cor dos seus SVGs) */
-    --accent-color: #256d46;  /* Verde Escuro (Acento) */
-    --secondary-color: #343a40; /* Texto Escuro */
-    --bg-light: #f7fef7;      /* Fundo muito claro, quase branco */
-    --transition-speed: 0.4s;
-   
     flex: 1;
     min-width: 300px;
-    padding: 35px;
+    padding: 32px;
     background-color: #fff;
     border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    transition: all var(--transition-speed) ease-in-out;
-    border: 3px solid transparent; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow var(--transition-speed) ease-out, transform var(--transition-speed) ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.local-info::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(90deg, #0e4d2a69, #3a534569, #076e35bb);
+    background-size: 300% 100%;
+    border-radius: 18px;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease-in;
+    animation: shine-border var(--shine-speed) linear infinite paused;
+}
+
+.local-info > * {
+    position: relative;
+    z-index: 1;
 }
 
 .local-info:hover {
-    transform: perspective(1000px) rotateY(1deg) translateY(-8px) scale(1.01); 
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25); 
-    border: 3px solid var(--primary-color); 
+    box-shadow: 0 15px 40px rgba(56, 161, 105, 0.45);
 }
 
+.local-info:hover::before {
+    opacity: 1;
+    animation-play-state: running;
+}
+
+@keyframes shine-border {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
 .local-info h3 {
     font-size: 2.2em;
-    color: var(--accent-color); 
+    color: var(--accent-color);
     margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 3px solid #e0f0e0; 
+    border-bottom: 3px solid #e0f0e0;
+    transition: color var(--fast-transition) ease-out;
 }
 
+.local-info:hover h3 {
+    color: var(--primary-color);
+}
 
 .local-info p {
     font-size: 1.1em;
     color: #444;
     margin-bottom: 12px;
-    display: flex; 
+    display: flex;
     align-items: center;
     line-height: 1.5;
+    transition: color var(--fast-transition) ease-out;
 }
 
+.local-info:hover p {
+    color: var(--secondary-color);
+}
 
 .local-info svg {
-    
-    vertical-align: middle; 
-    margin-right: 8px; 
-    height: 1.3em; 
+    vertical-align: middle;
+    margin-right: 8px;
+    height: 1.3em;
     width: 1.3em;
     flex-shrink: 0;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease-in-out;
 }
 
-
-
+.local-info:hover svg {
+    transform: scale(1.15);
+    filter: drop-shadow(0 3px 6px rgba(56, 161, 105, 0.7));
+}
 
 .info-separator {
     border: none;
-    border-top: 1px dashed #cfcfcf; 
+    border-top: 1px dashed #cfcfcf;
     margin: 25px 0;
+    transition: border-top var(--fast-transition) ease-out;
 }
 
+.local-info:hover .info-separator {
+    border-top: 1px dashed var(--primary-color);
+}
 
 .local-info h4 {
     font-size: 1.4em;
-    color: var(--secondary-color); 
+    color: var(--secondary-color);
     margin: 20px 0 15px 0;
-    border-left: 5px solid var(--primary-color); 
+    border-left: 5px solid var(--primary-color);
     padding-left: 15px;
     font-weight: 700;
     display: flex;
     align-items: center;
+    transition: color var(--fast-transition) ease-out, border-left var(--fast-transition) ease-out;
 }
 
-.local-info h4 svg {
-    
-    margin-right: 8px;
-    height: 1.2em;
-    width: 1.2em;
+.local-info:hover h4 {
+    color: var(--primary-color);
+    border-left: 5px solid var(--accent-color);
 }
-
-
 
 .contact-detail {
     display: flex;
@@ -1357,18 +1514,15 @@ Ubuntu, Cantarell, sans-serif;
     font-size: 1.1em;
     color: #444;
     margin-bottom: 12px;
-    
 }
-
-
 
 .info-list {
     list-style: none;
     padding: 0;
     margin-top: 15px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-    gap: 10px 25px; 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px 25px;
 }
 
 .info-list li {
@@ -1381,43 +1535,56 @@ Ubuntu, Cantarell, sans-serif;
     padding: 3px 0;
 }
 
-
-
-
-.local-area {
-    --primary-color:  #256d46;
+/* Bloco Principal e Título da Seção */
+:root {
+    --primary-color: #38a169;
     --secondary-color: #15482d;
-    --bg-light: #f7f7f7;
-    --transition-speed: 0.3s;
-   
-    padding: 80px 20px;
-    background-color: var(--bg-light);
-    text-align: center;
-    overflow-x: hidden;
+    --bg-light: #f7fef7;
+    --transition-speed: 0.8s;
+    --fast-transition: 0.3s;
 }
 
+.local-area {
+    padding: 100px 20px;
+    background-color: var(--bg-light);
+    text-align: center;
+    overflow: hidden;
+}
 
 .sec-title {
-    font-size: 2.8em;
+    font-size: 3.2em;
     color: var(--secondary-color);
-    margin-bottom: 50px;
+    margin-bottom: 60px;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     position: relative;
     display: inline-block;
+    transition: transform var(--fast-transition) ease-out, color var(--fast-transition) ease-out;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .sec-title::after {
     content: '';
     display: block;
-    width: 80px;
-    height: 4px;
-    background-color: var(--primary-color);
-    margin: 15px auto 0;
-    border-radius: 2px;
+    width: 100px;
+    height: 5px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    margin: 20px auto 0;
+    border-radius: 3px;
+    transition: width var(--fast-transition) ease-out;
 }
 
-/* --- WRAPPER E ITENS --- */
+.sec-title:hover {
+    transform: translateY(-2px) scale(1.02);
+    color: #39a069;
+    transition: transform var(--fast-transition) ease-out, color var(--fast-transition) ease-out;
+}
+
+.sec-title:hover::after {
+    width: 120px;
+}
+
+/* Wrapper */
 .local-wrapper {
     max-width: 1200px;
     margin: 0 auto;
@@ -1426,169 +1593,335 @@ Ubuntu, Cantarell, sans-serif;
     gap: 40px;
     align-items: stretch;
     text-align: left;
+    perspective: 1000px;
 }
 
-
-
-
 .local-info:hover {
-    transform: translateY(-5px) scale(1.01); 
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); 
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 .local-info h3 {
-    font-size: 2em;
+    font-size: 2.2em;
     color: var(--primary-color);
     margin-bottom: 20px;
     border-bottom: 3px solid #eee;
     padding-bottom: 10px;
 }
 
-.local-info p:nth-child(3) { 
+.local-info p:nth-child(3) {
     font-weight: 700;
     color: var(--secondary-color);
     margin-top: 20px;
     display: flex;
     align-items: center;
     gap: 8px;
+    transition: color var(--fast-transition) ease-out;
+}
+
+.local-info:hover p:nth-child(3) {
+    color: var(--primary-color);
 }
 
 .local-info p:nth-child(3)::before {
-    content: ""; 
+    content: "";
     font-size: 1.2em;
 }
 
+/* Container e Mapa */
 .local-map-container {
     flex: 2;
-    height: 400px;
-    border-radius: 12px;
+    height: 450px;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     margin: auto;
+    transition: all var(--transition-speed) ease-in-out;
+}
+
+.local-map-container:hover .local-map {
+    transform: scale(1.05);
 }
 
 .local-map {
     width: 100%;
-    height: 450px; 
+    height: 100%;
     border: 0;
     display: block;
+    transition: transform 0.5s ease-in-out;
 }
 
-
-
-
+/* Animações de Entrada */
 [data-animate] {
     opacity: 0;
-    transition: opacity 1s ease-out, transform 1s ease-out;
+    transition: opacity var(--transition-speed) cubic-bezier(0.23, 1, 0.32, 1),
+                transform var(--transition-speed) cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 [data-animate="fade-down"] {
-    transform: translateY(-30px);
+    transform: translateY(-50px);
 }
-/* Info vindo da direita */
+
 [data-animate="fade-right"] {
-    transform: translateX(-50px);
+    transform: translateX(50px) rotateY(-5deg);
 }
-/* Mapa vindo da esquerda */
+
 [data-animate="fade-left"] {
-    transform: translateX(50px);
+    transform: translateX(-50px) rotateY(5deg);
 }
 
 [data-animate].animate-ready {
     opacity: 1;
-    transform: translate(0, 0); 
+    transform: translate(0, 0) rotateY(0deg);
 }
 
+.local-map-container[data-animate].animate-ready .local-map {
+    transform: scale(1);
+}
 
+.local-map-container .local-map {
+    transform: scale(1.05);
+}
+
+/* Media Queries */
 @media (max-width: 992px) {
     .local-wrapper {
-        flex-direction: column; 
+        flex-direction: column;
     }
     .local-info, .local-map-container {
-        min-width: 100%; 
+        min-width: 100%;
     }
-    .local-map {
-        height: 350px; 
+    .local-map-container {
+        height: 350px;
+    }
+    [data-animate="fade-right"], [data-animate="fade-left"] {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    [data-animate="fade-right"].animate-ready, [data-animate="fade-left"].animate-ready {
+        transform: translateX(0);
+        opacity: 1;
     }
 }
-
-
-
-
-
-
-
-
 
 
 
 /* ---------------- AVALIAÇÕES ---------------- */
-
-.reviews {
-  padding: 70px 0;
-  overflow: hidden;
+:root {
+    --primary-color: #38a169;
+    --accent-color: #256d46;
+    --secondary-color: #15482d;
+    --card-width: 300px; /* Largura de cada cartão */
+    --animation-duration: 40s; /* Velocidade do loop */
 }
 
+/* 🏔️ Estilo da Seção */
+.reviews-section {
+    padding: 60px 0;
+    background-color: var(--bg-light);
+    text-align: center;
+    overflow: hidden; /* ESSENCIAL: Esconde as avaliações duplicadas */
+}
+
+.sec-title {
+    font-size: 2.8em;
+    color: var(--secondary-color);
+    margin-bottom: 40px;
+}
+
+/* 📦 Wrapper do Carrossel */
+.reviews-wrapper {
+    /* Centraliza e define a área visível */
+    max-width: 100vw; 
+    margin: 0 auto;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, 
+        transparent 0%, black 10%, black 90%, transparent 100%);
+    mask-image: linear-gradient(to right, 
+        transparent 0%, black 10%, black 90%, transparent 100%); 
+    /* Efeito de fading nas bordas para simular um carrossel que entra e sai */
+}
+
+/* 🚂 Trilha de Avaliações (Onde a Mágica Acontece) */
 .reviews-track {
-  display: flex;
-  gap: 20px;
-  animation: slideReviews 18s linear infinite;
-  padding: 20px;
+    display: flex;
+    gap: 30px;
+    padding: 10px 0;
+    width: fit-content; /* Permite que o container cresça para segurar todos os cartões */
+    animation: scroll-loop var(--animation-duration) linear infinite;
+    /* Pausa a animação ao passar o mouse */
+    animation-play-state: running; 
 }
 
+.reviews-track:hover {
+    animation-play-state: paused;
+}
+
+/* 💳 Estilo do Cartão */
 .review-card {
-  background: #fff;
-  border-radius: 14px;
-  padding: 20px;
-  min-width: 260px;
-  box-shadow: 0 8px 25px #0001;
-  transform: translateZ(0);
-  transition: .3s;
+    min-width: var(--card-width);
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
 
 .review-card:hover {
-  transform: scale(1.05);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes slideReviews {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+.review-rating {
+    font-size: 1.5em;
+    margin-bottom: 10px;
 }
+
+.review-text {
+    font-size: 1.1em;
+    color: #444;
+    font-style: italic;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.review-author {
+    display: block;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* 🔄 Keyframes para o Loop Infinito */
+@keyframes scroll-loop {
+    from {
+        transform: translateX(0);
+    }
+    /* Move a trilha 50% para a esquerda (assumindo que o JS duplicou os cartões) */
+    to { 
+        transform: translateX(-50%); 
+    }
+}
+
+
 
 /* ---------------- FILIAIS ---------------- */
 
-.filiais {
-  padding: 60px 20px;
+:root {
+    --primary-color: #38a169; 
+    --secondary-color: #15482d;
+    --bg-light: #f7fef7;
+    --transition-speed: 0.4s;
 }
 
-.filiais-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-  margin-top: 30px;
+/* 🏔️ Seção Principal */
+.branches-section {
+    padding: 80px 20px;
+    background-color: var(--bg-light);
+    text-align: center;
 }
 
-.filial-card {
-  background: #f8f8f8;
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 0 20px #0001;
-  transition: .3s;
+.sec-title {
+    font-size: 2.8em;
+    color: var(--secondary-color);
+    margin-bottom: 50px;
 }
 
-.filial-card:hover {
-  transform: translateY(-6px);
+/* 📐 Layout Grid Responsivo */
+.branches-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    /* 3 colunas em telas grandes, mínimo de 320px */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 40px;
 }
 
-.filial-card iframe {
-  width: 100%;
-  height: 260px;
-  margin-top: 12px;
-  border-radius: 12px;
+/* 💳 Cartão da Filial */
+.branch-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: all var(--transition-speed) cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.branch-card:hover {
+    /* Efeito de elevação 3D suave */
+    transform: perspective(1000px) translateY(-5px) scale(1.02); 
+    box-shadow: 0 15px 40px rgba(56, 161, 105, 0.3);
+}
+
+.branch-title {
+    font-size: 1.8em;
+    color: var(--primary-color);
+    padding: 20px;
+    margin: 0;
+    border-bottom: 3px solid #eee;
+    text-align: center;
+}
+
+/* 🗺️ Container do Mapa */
+.map-container {
+    position: relative;
+    width: 100%;
+    /* Mantém a proporção (ex: 400px de altura para a maioria) */
+    height: 400px; 
+    flex-grow: 1; /* Garante que ocupe o espaço restante */
+}
+
+.branch-map {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilo do Placeholder (antes do mapa carregar) */
+.map-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #e0f0e0;
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: opacity var(--transition-speed) ease-out;
+}
+
+.map-placeholder p {
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Quando o mapa estiver carregado, esconde o placeholder */
+.map-placeholder[data-map-loaded="true"] {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* 📱 Responsividade */
+@media (max-width: 768px) {
+    .branches-grid {
+        grid-template-columns: 1fr;
+    }
+    .map-container {
+        height: 300px;
+    }
 }
 
 
 
+/* card */
 .card-wrapper {
             
             display: flex;
@@ -1681,3 +2014,172 @@ Ubuntu, Cantarell, sans-serif;
           color: #777;
           line-height: 1.4;
         }
+
+
+        /* --- COMO FUNCIONA' --- */
+.how-it-works {
+   
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.how-it-works h2 {
+    font-size: 2rem;
+    margin-bottom: 22px;
+    color: var(--verde-escuro);
+    margin: auto;
+}
+
+.container-steps {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Espaço entre os cards */
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.step-card {
+    flex: 1;
+    max-width: 300px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.step-card i {
+    font-size: 3em;
+    color: #38a169; /* Cor verde da marca (ajuste se necessário) */
+    margin-bottom: 15px;
+}
+
+.step-card h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.step-card p {
+    font-size: 1em;
+    color: #555;
+}
+
+/* --- 2. MELHORIAS NO HEADER/NAVBAR --- */
+
+/* Ajuste no layout do navbar para acomodar ícones */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* ... (Mantenha seus estilos existentes) ... */
+}
+
+/* Estilo para os ícones de Carrinho e Busca */
+.nav-icon {
+    font-size: 1.2em;
+    color: #333; /* Ou a cor do seu texto de link */
+    position: relative;
+    padding: 5px; /* Para facilitar o clique */
+}
+
+/* Contador do Carrinho */
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #e53e3e; /* Vermelho */
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.7em;
+    line-height: 1;
+    min-width: 18px;
+    text-align: center;
+}
+
+/* Ocultar o menu dropdown por padrão */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Abaixo do botão */
+    left: 0;
+    min-width: 150px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    border-radius: 4px;
+    padding: 5px 0;
+}
+
+.dropdown-menu a {
+    color: #333;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+    color: #38a169;
+}
+
+/* Classe ativadora via JS */
+.dropdown.open .dropdown-menu {
+    display: block;
+}
+
+/* Responsividade (Ajuste o breakpoint conforme seu design) */
+@media (max-width: 768px) {
+    .container-steps {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-links {
+        /* Garante que o menu mobile fique em coluna */
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        top: 60px; /* Altura da navbar */
+        left: 0;
+        width: 100%;
+        background-color: #fff; /* Fundo do menu aberto */
+        padding: 10px 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        display: none; /* Oculta por padrão */
+        height: auto;
+    }
+
+    .nav-links.active {
+        display: flex; /* Mostra quando ativo */
+    }
+    
+    /* Para o menu dropdown dentro do menu mobile */
+    .dropdown {
+        width: 100%;
+    }
+    
+    .dropdown-menu {
+        position: static; /* Remove a posição absoluta no mobile */
+        box-shadow: none;
+        padding: 0;
+        margin-left: 20px;
+    }
+    
+    .dropdown-menu a {
+        padding: 5px 15px;
+    }
+    
+    .mobile-btn {
+        display: block; /* Garante que o botão mobile aparece */
+        cursor: pointer;
+        font-size: 1.5em;
+    }
+}
